@@ -1,0 +1,26 @@
+{
+  "name": "School-System-Api",
+  "version": "1.0.0",
+  "description": "Api for school management system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Knight-Khode/School-System-Api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Knight-Khode/School-System-Api/issues"
+  },
+  "homepage": "https://github.com/Knight-Khode/School-System-Api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.12"
+  }
+}
