@@ -42,7 +42,7 @@ router.put('/:id',async(req,res)=>{
             lecturer:lecturer
         }
     },{new:true})
-
+    if(!course)return res.status(404).send(`Could not find course with ID ${req.params.id}`)
     res.send(course)
 })
 

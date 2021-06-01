@@ -39,7 +39,7 @@ router.put('/:id',async(req,res)=>{
             password:req.body.password
         }
     },{new:true})
-
+    if(!lecturer)return res.send(`Could not find Lecturer with ID ${req.params.id}`).send(404)
     res.send(_.pick(lecturer,['_id','name','email']))
 })
 

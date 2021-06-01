@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const Joi = require("joi")
 const {lecturerSchema} = require('./lecturer')
 
-const courseSchema = mongoose.Schema({
+const courseSchema =new mongoose.Schema({
     courseName:{
         type:String,
         minlength:5,
@@ -31,3 +31,4 @@ const validate = (course)=>{
 
 exports.Course = Course
 exports.validate = validate
+exports.courseSchema = courseSchema
