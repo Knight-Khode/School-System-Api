@@ -27,7 +27,7 @@ const Lecturer = mongoose.model('Lecturer',lecturerSchema)
 const validate = (lecturer)=>{
     const schema = Joi.object({
         name:Joi.string().min(5).max(255).required(),
-        email:Joi.string().required(),
+        email:Joi.string().email().required(),
         password:Joi.string().min(5).max(255).required()
     })
 
@@ -36,3 +36,4 @@ const validate = (lecturer)=>{
 
 exports.Lecturer = Lecturer
 exports.validate=validate
+exports.lecturerSchema = lecturerSchema
