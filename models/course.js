@@ -7,8 +7,7 @@ const courseSchema =new mongoose.Schema({
         type:String,
         minlength:5,
         maxlength:255,
-        required:true,
-        unique:true
+        required:true
     },
     duration:{
         type:Number,

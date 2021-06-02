@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bcrypt = require('bcrypt')
 const _=require('lodash')
+const jwt = require('jsonwebtoken')
 const {Student,validate}=require('../models/student')
 const {Course} = require('../models/course')
 const router = express.Router()
@@ -32,9 +33,10 @@ router.post('/',async(req,res)=>{
         course:course
     })
     const salt = await bcrypt.genSalt(10)
-    req.body.password = await bcrypt.hash(req.body.password,salt)
+    student.password = await bcrypt.hash(req.body.password,salt)
     await student.save()
-    res.send(_.pick(student,["_id","name","email","course"]))
+    const token = jwt.sign({_id:student._id},'jwtPrivateKey')
+    res.header('x-auth-token',token).send(_.pick(student,["_id","name","email","course"]))
 })
 
 router.put('/:id',async(req,res)=>{
@@ -48,6 +50,7 @@ router.put('/:id',async(req,res)=>{
         }
     },{new:true})
     if(!student)return res.send(`could not find student with ID ${req.params.id}`).status(404)
+    const token = await 
     res.send(_.pick(student,["_id","name","email"]))
 })
 
